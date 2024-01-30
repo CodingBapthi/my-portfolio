@@ -2,16 +2,27 @@
 import projectImage from '@assets/images/project.png';
 import { Image } from '@astrojs/image/components';
 import Tags from '@components/ui/Tags.astro';
+import Rating from '@components/ui/Rating.astro';
 interface Props {
+	type: string;
+	rating?: number;
 	url?: string;
 	alt?: string;
 	title?: string;
-	description: string,
+	description?: string;
 	tags: string[];
 	children?: HTMLElement | HTMLElement[];
 }
 
-const { url = '#', alt = 'Project image', description = 'Project Description', title = 'Project title', tags = ['Tags'] } = Astro.props;
+const {
+	type = 'project',
+	url = '#',
+	rating = 0,
+	alt = 'Project image',
+	description = 'Project Description',
+	title = 'Project title',
+	tags = ['Tags'],
+} = Astro.props;
 ---
 
 <section class="w-full p-4 md:w-1/2 lg:w-1/3">
@@ -33,7 +44,8 @@ const { url = '#', alt = 'Project image', description = 'Project Description', t
 			</div>
 			<div class="mt-1 p-2">
 				<h3 class="text-xl text-orange lg:text-2xl">{title}</h3>
-				<p class="text-black text-s">{description}</p>
+				{type === 'project' ? <p class="text-s text-black">{description}</p> : null}
+				<Rating rating={rating} />
 				<Tags tags={tags} />
 			</div>
 		</a>

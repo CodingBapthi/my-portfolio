@@ -1,0 +1,29 @@
+---
+import Card from '@components/ui/Card.astro';
+import { getCollection } from 'astro:content';
+
+const skills = await getCollection('skills', ({ data }) => {
+	return !data.inProgress;
+});
+---
+
+<section
+	data-testid="skills"
+	id="skills"
+	class="mb-10 flex flex-col items-center justify-center md:mb-0 md:h-screen"
+>
+	<h2 class="font-monospace text-2xl text-orange lg:text-4xl">Skills</h2>
+	<span class="mb-10 h-1 w-10 bg-orange"></span>
+	<div class="mb-10 flex w-full flex-col flex-wrap items-center md:flex-row">
+		{
+			skills.map((skill) => (
+				<Card
+					type={skill.data.type}
+					title={skill.data.title}
+					rating={skill.data.rating}
+					tags={skill.data.tags}
+				/>
+			))
+		}
+	</div>
+</section>
