@@ -6,4 +6,11 @@ import { defineConfig } from 'astro/config';
 // https://astro.build/config
 export default defineConfig({
 	integrations: [tailwind(), mdx(), image()],
+	i18n: {
+		defaultLocale: 'de',
+		locales: ['de', 'en'],
+		routing: {
+			prefixeDefaultLocale: false,
+		},
+	},
 });
