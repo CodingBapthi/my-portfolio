@@ -15,29 +15,21 @@ const emptyStars = totalStars - fullStars - halfStar;
 	<!-- Vollsterne -->
 	{
 		Array.from({ length: fullStars }, (_, i) => (
-			<span key={`full-${i}`} class="star">
-				&#9733;
-			</span> // oder ein passendes Vollstern-Icon
+			<span class="star">&#9733;</span> // oder ein passendes Vollstern-Icon
 		))
 	}
 
 	<!-- Halbsterne -->
 	{
-		halfStar ? (
-			<span key="half" class="star">
-				&#189;
-			</span> // oder ein passendes Halbstern-Icon
-		) : (
-			''
-		)
+		Array.from({ length: halfStar }, (_, i) => (
+			<span class="star">&#189;</span> // oder ein passendes Halbstern-Icon
+		))
 	}
 
 	<!-- Leere Sterne -->
 	{
 		Array.from({ length: emptyStars }, (_, i) => (
-			<span key={`empty-${i}`} class="star">
-				&#9734;
-			</span> // oder ein passendes Leeres-Stern-Icon
+			<span class="star">&#9734;</span> // oder ein passendes Leeres-Stern-Icon
 		))
 	}
 </div>
