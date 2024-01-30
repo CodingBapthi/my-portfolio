@@ -1,5 +1,6 @@
 ---
 import projectImage from '@assets/images/project.png';
+import skillImage from '@assets/images/skill.png';
 import { Image } from '@astrojs/image/components';
 import Tags from '@components/ui/Tags.astro';
 import Rating from '@components/ui/Rating.astro';
@@ -33,7 +34,7 @@ const {
 		<a href={url} aria-label="link to project">
 			<div class="relative flex items-end overflow-hidden rounded-xl">
 				<Image
-					src={projectImage}
+					src={type === 'project' ? projectImage : skillImage}
 					alt={alt}
 					aspectRatio="4:4"
 					format="png"
