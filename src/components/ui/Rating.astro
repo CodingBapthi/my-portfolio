@@ -1,0 +1,50 @@
+---
+export interface Props {
+	rating?: number; // Die Bewertung sollte eine Zahl zwischen 0 und 5 sein
+}
+
+const { rating } = Astro.props;
+
+const totalStars = 5;
+const fullStars = Math.floor(rating);
+const halfStar = rating % 1 >= 0.5 ? 1 : 0;
+const emptyStars = totalStars - fullStars - halfStar;
+---
+
+<div class="mt-2 flex w-2/3 flex-row flex-wrap justify-between">
+	<!-- Vollsterne -->
+	{
+		Array.from({ length: fullStars }, (_, i) => (
+			<span key={`full-${i}`} class="star">
+				&#9733;
+			</span> // oder ein passendes Vollstern-Icon
+		))
+	}
+
+	<!-- Halbsterne -->
+	{
+		halfStar ? (
+			<span key="half" class="star">
+				&#189;
+			</span> // oder ein passendes Halbstern-Icon
+		) : (
+			''
+		)
+	}
+
+	<!-- Leere Sterne -->
+	{
+		Array.from({ length: emptyStars }, (_, i) => (
+			<span key={`empty-${i}`} class="star">
+				&#9734;
+			</span> // oder ein passendes Leeres-Stern-Icon
+		))
+	}
+</div>
+
+<style>
+	.star {
+		color: gold;
+		margin-right: 4px;
+	}
+</style>

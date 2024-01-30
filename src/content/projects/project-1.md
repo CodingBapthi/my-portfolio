@@ -1,5 +1,6 @@
 ---
 inProgress: false
+type: project
 title: In Progress
 description: Project description
 img_alt: project image alt text
