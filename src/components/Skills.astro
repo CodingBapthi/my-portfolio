@@ -10,11 +10,11 @@ const skills = await getCollection('skills', ({ data }) => {
 <section
 	data-testid="skills"
 	id="skills"
-	class="mb-10 flex flex-col items-center justify-center md:mb-0 md:h-screen"
+	class="md:h-dvh mb-10 flex flex-col items-center justify-center md:mb-0"
 >
 	<h2 class="font-monospace text-2xl text-orange lg:text-4xl">Skills</h2>
 	<span class="mb-10 h-1 w-10 bg-orange"></span>
-	<div class="mb-10 flex w-full flex-col flex-wrap items-center md:flex-row">
+	<div class="mb-10 flex w-full flex-col flex-wrap items-center justify-center md:flex-row">
 		{
 			skills.map((skill) => (
 				<Card
